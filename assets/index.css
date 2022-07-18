@@ -1,0 +1,28 @@
+#search-box{
+    display: flex;
+    justify-content: center;
+    margin: 40px 0px;
+}
+#food-api-conatiner{
+    
+    height: 1500px;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+.food-card{
+  
+    
+    width: 300px;
+    height: 500px;
+    background-color: aquamarine;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.food-image{
+    width: 250px;
+    height: 250px;
+    margin: 7%;
+}
