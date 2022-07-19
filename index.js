@@ -1,6 +1,6 @@
 const btn = document.getElementById('get-btn');
 
-btn.addEventListener('click', fetchFood);
+// btn.addEventListener('click', fetchFood);
 
 
 const container =document.getElementById('food-api-conatiner');
@@ -24,7 +24,7 @@ const searchBox = document.getElementById('search-box');;
    
    
    
-   
+
    
    function fetchFood() {
     container.innerHTML = ``;
