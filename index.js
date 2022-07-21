@@ -65,6 +65,8 @@ function displayMeals(responseJSON) {
         let mealImg = responseJSON.meals[i].strMealThumb;
         let mealName = responseJSON.meals[i].strMeal;
         let mealId =responseJSON.meals[i].idMeal;
+        let mealArea = responseJSON.meals[i].strArea;
+        let youtubeLink = responseJSON.meals[i].strYoutube; 
         let strInstructions = responseJSON.meals[i].strInstructions;
 
 
@@ -73,15 +75,16 @@ function displayMeals(responseJSON) {
         let card =document.createElement("div");
         let nameTag = document.createElement("h4");
         let detailBtn = document.createElement("input");
-
+        let areaTag =document.createElement("h4")
         detailBtn.setAttribute('type', 'submit');
         detailBtn.setAttribute('value', 'details');
 
-
+        areaTag.innerText =mealArea;
         nameTag.innerText= mealName;
         card.setAttribute('class', 'food-card');
         card.appendChild(imgTag);
         card.appendChild(nameTag);
+        card.appendChild(areaTag);
         card.appendChild(detailBtn);
         
         container.appendChild(card);
@@ -93,7 +96,13 @@ function displayMeals(responseJSON) {
         detailBtn.addEventListener('click',function nextPage(){
             searchBox.innerHTML =``;
             container.innerHTML=``;
-            
+            let aTag = document.createElement('a');
+            aTag.setAttribute('href', youtubeLink)
+            let homeButton = document.createElement('button');
+            homeButton.setAttribute('type', 'submit')
+            homeButton.innerText= 'watch';
+            aTag.appendChild(homeButton)
+            // homeButton.setAttribute('href', youtubeLink)
             let h2 =document.createElement('h2');
             h2.innerText= `${mealName}`;
             searchBox.appendChild(h2);
@@ -116,11 +125,13 @@ function displayMeals(responseJSON) {
             InstructionsContainer.appendChild(Instructions);
 
             let mealImg = responseJSON.meals[index].strMealThumb;
-        
+
             imgTag.setAttribute('src', mealImg);
             imgTag.setAttribute('class',"details-food-image");
             detailsContainer.appendChild(imgTag);
             detailsContainer.appendChild(InstructionsContainer);
+            detailsContainer.appendChild(aTag)
+
             container.appendChild(detailsContainer);
 
         } );
