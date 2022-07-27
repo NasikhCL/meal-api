@@ -4,21 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    
     <link rel="stylesheet" href="assets/index.css">
    
 
     <title>Meal App</title>
 </head>
 <body>
-    <div id="search-box">
+    <nav>
+      <div id="logo">
+          <img src="assets/images/FOOD house crop.png" alt="">
+      </div>
+      <div id="fav-btn-container">
+          <a href="fav.html" id="nav-fav-btn"> Favourite</a>
+          <a href="index.html" id="nav-home-btn"> Home</a>
+      </div>
+    </nav>
+ 
+    <main>
+      <div id="search-box">
         <input type="text" placeholder="Search your Meal..." id="text-box" onKeyUp="fetchFood(value)">
         <!-- <button id="get-btn"   type="submit">get a food details</button> -->
-    </div>
+      </div>
     
-    <div id="food-api-conatiner">
+      <div id="food-api-conatiner">
         
 
-    </div>
-    <script type="text/javascript" src="index.js"></script>
+      </div>
+
+    <script src="assets/js/index.js"></script>
 </body>
 </html>
