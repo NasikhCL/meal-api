@@ -74,11 +74,14 @@ function displayMeals(responseJSON) {
         let detailBtn = document.createElement("button");
         
         let areaTag =document.createElement("h4")
-        let addToFav = document.createElement('button')
-        addToFav.setAttribute('type','submit');
-        addToFav.innerText= `addToFav`
+        let addToFav = document.createElement('h3')
+        // addToFav.setAttribute('type','submit');
+        // addToFav.innerText= `addToFav`
         card.setAttribute('id', mealId)
-        addToFav.setAttribute('name','fav-check');
+        addToFav.setAttribute('class','fav-check');
+        addToFav.innerHTML = `<span class="material-symbols-outlined">
+        favorite
+        </span>`;
         addToFav.setAttribute('onchange','addToFav()');
 
 
@@ -199,5 +202,16 @@ container.addEventListener('click', (e)=>{
         window.open(`details.html?id=${mealId}`)
 
 
+    }else if (e.target.className == 'material-symbols-outlined') {
+        console.log("fav button clicked");
+        if(!e.target.classList.contains('fill')){
+            console.log("fill added");
+            e.target.classList.add('fill')
+        }
+        
+    } else if( e.target.classList.contains('fill') ) {
+        e.target.classList.remove('fill')
+        console.log("removed from fav");
+        
     }
 })
