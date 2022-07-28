@@ -1,0 +1,51 @@
+body{
+    margin: 5px;
+  }
+  nav{
+    /* margin: 5px; */
+    height: 70px;
+    background-color: blueviolet;
+    display: flex;
+    width: 100%;
+  }
+  #fav-btn-container{
+    
+    margin-top: 25px;
+  
+  
+  }
+  #fav-btn-container a{
+   
+    text-decoration: none;
+    color: lightgray;
+    margin-left: 30px;
+  
+  
+  }
+  
+  #fav-btn-container a:hover{
+  
+    color: white;
+    font-size: large;
+  
+  
+  }
+  
+  #logo{
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    
+  }
+  #logo img{
+    width: 100%;
+    border-radius: 50%;
+    
+  }
+
+  
+  #favourite-container{
+    width: 97%;
+    display: flex;
+    flex-wrap: wrap;
+  }

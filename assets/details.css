@@ -1,0 +1,132 @@
+body{
+    margin: 0px;
+    background: url('images/pexels-lukas-349610.jpg');
+    background-size: cover;
+
+    color: #12193e;
+  }
+  nav{
+    /* margin: 5px; */
+    height: 70px;
+    background-color: blueviolet;
+    display: flex;
+    width: 100%;
+  }
+  #fav-btn-container{
+    
+    margin-top: 25px;
+  
+  
+  }
+  #fav-btn-container a{
+   
+    text-decoration: none;
+    color: lightgray;
+    margin-left: 30px;
+  
+  
+  }
+  
+  #fav-btn-container a:hover{
+  
+    color: white;
+    font-size: large;
+  
+  
+  }
+  
+  #logo{
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    
+  }
+  #logo img{
+    width: 100%;
+    border-radius: 50%;
+    
+  }
+
+  
+  #details-container{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #meal-img-container{
+      margin: auto;
+    width: 300px;
+    height: 300px;
+    padding-bottom: 20px;
+    /* background-color: #12193e; */
+    border-radius: 20px 20px 0px 0px;
+    padding: 5px 10px;
+  }         
+ #meal-img-container img{
+  width: 100%;
+  border-radius: 10%;
+ }  
+#meal-name{
+
+  width: 100%;
+  text-align: center;
+  background-color: #12193e;
+  color: white;
+  margin-bottom: 10px;
+}
+
+#instructions{
+  background-color: lightgray;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  padding-bottom:  20px;
+  margin-bottom: 10px;
+}
+  
+
+  /*scvfdx*/
+.meal-details{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: justify;
+  justify-content: space-between;
+  
+  width: 95%;
+
+  background-color: rgb(250, 232, 112);
+}
+.details-food-image{
+  margin: auto;
+  margin-top: 10px;
+  /* padding-top: 10px; */
+  width: 250px;
+  height: 250px;
+  border-radius: 30px;
+  border: 2px solid #333;
+
+  
+}
+
+.Instructions-container{
+  
+  width: 99%;
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+}
+
+.youtube-watch-button-container{
+margin: auto;
+}
+
+.youtube-watch-button{
+
+margin-bottom: 10px ;
+width: 150px;
+height: 30px;
+
+
+}
