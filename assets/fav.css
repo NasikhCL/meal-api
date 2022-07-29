@@ -1,20 +1,21 @@
+/* favourites page */
+
+
+
+
 body{
     margin: 0px;
     background-color: cornsilk;
   }
+
+  /* nav bar */
   nav{
-    /* margin: 5px; */
     height: 70px;
     background-color: blueviolet;
     display: flex;
     width: 100%;
   }
-  /* #fav-btn-container{
-    
-    margin-top: 25px;
-  
-  
-  } */
+
   #fav-btn-container a{
    
     text-decoration: none;
@@ -44,6 +45,8 @@ body{
     
   }
 
+
+  /* main content */
   
   #favourite-container{
    

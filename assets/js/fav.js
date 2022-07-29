@@ -1,6 +1,10 @@
 const favouriteContainer = document.getElementById('favourite-container');
-let myFavs = [];
 
+
+
+
+// getting the meal id's from the local storage and storing it in myfavs array
+let myFavs = [];
 
 if(localStorage.myFavs){
     localStorage.getItem("myFavs", JSON.stringify(myFavs));
@@ -16,7 +20,7 @@ if(localStorage.myFavs){
 
 
 
-
+// fetching data from api
 
 const getDetails = async(mealId)=>{
 
@@ -34,11 +38,13 @@ const getDetails = async(mealId)=>{
     
     
     }
+
+
+    // to display a message if noting present local storage to show
     if(myFavs.length == 0){
         const empty = document.createElement('h1')
         empty.innerText =  `No Favourites To Show :(`;
         favouriteContainer.appendChild(empty);
-        // favouriteContainer.innerHTML=`<h1> No Favourites To Show :(</h1>`
 
     }else{
     myFavs.forEach(element => {
@@ -48,6 +54,7 @@ const getDetails = async(mealId)=>{
     }
 
 
+    // else to display the favourited items as cards
     const showDetails =  (responseJSON)=>{
         let mealImg = responseJSON.meals[0].strMealThumb;
         let mealName = responseJSON.meals[0].strMeal;
@@ -65,8 +72,7 @@ const getDetails = async(mealId)=>{
         
         let areaTag =document.createElement("h4")
         let addToFav = document.createElement('h3')
-        // addToFav.setAttribute('type','submit');
-        // addToFav.innerText= `addToFav`
+        
         card.setAttribute('id', mealId)
         addToFav.setAttribute('class','fav-check');
         addToFav.innerHTML = `<span class="material-symbols-outlined">
@@ -80,23 +86,17 @@ const getDetails = async(mealId)=>{
 
         }
         
-        // addToFav.setAttribute('onchange','addToFav()');
-
 
         addToFav.classList.add('add-to-fav-button')
         detailBtn.setAttribute('type', 'submit');
         detailBtn.classList.add('detail-btn');
         detailBtn.innerText = ` View details`;
      
-
-
-
         areaTag.innerText =mealArea;
         nameTag.innerText= mealName;
         card.setAttribute('class', 'food-card');
         
 
-        // imgTag.setAttribute('id', mealId);
         card.appendChild(imgTag);
         card.appendChild(nameTag);
         card.appendChild(areaTag);
@@ -109,30 +109,15 @@ const getDetails = async(mealId)=>{
         imgTag.setAttribute('class',"food-image");
     }
 
-  
+//   adding even listenr on the favourites container
+ 
     favouriteContainer.addEventListener('click', (e)=>{
         if(e.target.className == 'detail-btn'){
             let mealId= e.target.parentNode.id;
             window.open(`details.html?id=${mealId}`)
     
     
-        }else if (e.target.className == 'material-symbols-outlined') {
-            console.log("fav button clicked");
-            if(!e.target.classList.contains('fill')){
-                console.log("fill added");
-                let mealId = parseInt(e.target.parentNode.parentNode.id);
-                // console.log(mealId);
-                myFavs.push(mealId);
-    
-                localStorage.setItem("myFavs", JSON.stringify(myFavs));
-                // myFavs.push(localStorage.myFavs);
-                
-    
-                e.target.classList.add('fill');
-                window.location.reload()
-            }
-            
-        } else if( e.target.classList.contains('fill') ) {
+        }else if( e.target.classList.contains('fill') ) {
             e.target.classList.remove('fill')
             let mealId = parseInt(e.target.parentNode.parentNode.id);
                 console.log(mealId);
@@ -146,5 +131,4 @@ const getDetails = async(mealId)=>{
             
         }
     });
-    // showFavs();
    

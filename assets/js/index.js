@@ -1,7 +1,3 @@
-const btn = document.getElementById('get-btn');
-
-// btn.addEventListener('click', fetchFood);
-
 
 const container =document.getElementById('food-api-conatiner');
 const searchBox = document.getElementById('search-box');;
@@ -10,9 +6,9 @@ let detailsContainer = document.getElementById('details-container');
 
 
 
+// adding the local storage elements to myFavs array
 
 let myFavs = [];
-// myFavs =  localStorage.myFavs;
 
 if(localStorage.myFavs){
     localStorage.getItem("myFavs", JSON.stringify(myFavs));
@@ -27,16 +23,9 @@ if(localStorage.myFavs){
 }
 
 
-
-
-// function initializeLocalstorage(){
-//     let localArray = [];
-//     if(localStorage.getItem('favMeals') == null){
-//         //create a new localStorage
-//         localStorage.setItem('favMeals',JSON.stringify(localArray));
-//     }
-// }
    
+// adding even listner to the favourites button in the nav bar and redirecting  it to the favourites page
+
 navFavBtn.addEventListener('click'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           , (e)=>{
     e.preventDefault();
     window.open(`fav.html`);
@@ -45,15 +34,15 @@ navFavBtn.addEventListener('click'                                              
    
 
    
-
+// fetch food function to fetch food from the api upon search keyup
    
-   function fetchFood() {
+function  fetchFood() {
    
     container.innerHTML = ``;
     console.log("loaded");
     const textBox = document.getElementById('text-box').value
     console.log(textBox)
-    // await
+
     let xhrRequest = new XMLHttpRequest();
     
 
@@ -80,7 +69,7 @@ navFavBtn.addEventListener('click'                                              
     
 }
 
-
+// to display the meals from the api to the users
 
 function displayMeals(responseJSON) {
 
@@ -101,38 +90,32 @@ function displayMeals(responseJSON) {
         
         let areaTag =document.createElement("h4")
         let addToFav = document.createElement('h3')
-        // addToFav.setAttribute('type','submit');
-        // addToFav.innerText= `addToFav`
+        
         card.setAttribute('id', mealId)
         addToFav.setAttribute('class','fav-check');
-        addToFav.innerHTML = `<span class="material-symbols-outlined">
-        favorite
-        </span>`;
+        
         if(myFavs.includes(mealIdCheck)){
             addToFav.innerHTML = `<span class="material-symbols-outlined fill">
         favorite
         </span>`;
         console.log('fav foundede');
 
-        }
-        
-        // addToFav.setAttribute('onchange','addToFav()');
+        }else{
+            addToFav.innerHTML = `<span class="material-symbols-outlined">
+        favorite
+        </span>`;
 
+        }
 
         addToFav.classList.add('add-to-fav-button')
         detailBtn.setAttribute('type', 'submit');
         detailBtn.classList.add('detail-btn');
         detailBtn.innerText = ` View details`;
      
-
-
-
         areaTag.innerText =mealArea;
         nameTag.innerText= mealName;
         card.setAttribute('class', 'food-card');
         
-
-        // imgTag.setAttribute('id', mealId);
         card.appendChild(imgTag);
         card.appendChild(nameTag);
         card.appendChild(areaTag);
@@ -144,90 +127,27 @@ function displayMeals(responseJSON) {
         imgTag.setAttribute('src', mealImg);
         imgTag.setAttribute('class',"food-image");
 
-//  end of display meals
 
-        // detailBtn.addEventListener('click',function nextPage(foodId){
-        //     console.log(detailBtn.foodId)
-        //     // let detailsContainer =document.getElementById('details-container');
-        //     // detailsContainer.innerText= value
-            // window.open(`details.html`)
-
-
-            
-        // });
-
-        // let detailsOfMeal = () =>{
-        //     // detailsContainer.appendChild(detailsOfMeal)
-
-        //     let aTag = document.createElement('a');
-        //     aTag.setAttribute('href', youtubeLink)
-        //     let homeButton = document.createElement('button');
-        //     let divYoutbeButton = document.createElement('div');
-        //     divYoutbeButton.setAttribute('class', 'youtube-watch-button-container')
-
-        //     homeButton.setAttribute('type', 'submit')
-        //     homeButton.classList.add('youtube-watch-button')
-        //     homeButton.innerText= 'watch how to prepare';
-        //     aTag.appendChild(homeButton)
-        //     divYoutbeButton.appendChild(aTag);
-        //     // homeButton.setAttribute('href', youtubeLink)
-        //     let h2 =document.createElement('h2');
-        //     h2.innerText= `${mealName}`;
-        //     searchBox.appendChild(h2);
-
-        //     let index = responseJSON.meals.map(object => object.idMeal).indexOf(mealId);
-        //     // console.log(index);
-        //     let detailsContainer = document.createElement('div');
-        //     detailsContainer.classList.add("meal-details");
-
-        //     let imgTag = document.createElement('img');
-
-        //     let InstructionsContainer = document.createElement('div');
-        //     InstructionsContainer.classList.add('Instructions-container')
-
-            
-
-        //     let Instructions = document.createElement('p');
-        //     Instructions.innerText = strInstructions; 
-
-        //     InstructionsContainer.appendChild(Instructions);
-
-        //     let mealImg = responseJSON.meals[index].strMealThumb;
-
-        //     imgTag.setAttribute('src', mealImg);
-        //     imgTag.setAttribute('id', mealId);
-        //     imgTag.setAttribute('class',"details-food-image");
-        //     detailsContainer.appendChild(imgTag);
-        //     detailsContainer.appendChild(InstructionsContainer);
-        //     detailsContainer.appendChild(divYoutbeButton)
-
-        //     detailsContainer.appendChild(detailsContainer);
-
-        //     }
 
         }
-
-
 
     
 }
 
 
+// in nothing to show for the search 
+// no result will desplay
 function showEmpty(){
     let h1 = document.createElement('h1');
     let text = "No Result Found"
     h1.innerText = text;
     container.appendChild(h1);
 
-
-
 }
 
-// function showDetailsPage(mealId){
-//     // console.log(mealId)
-   
-   
-// }
+
+
+// check for a click event in the search result container
 
 
 container.addEventListener('click', (e)=>{
@@ -245,8 +165,6 @@ container.addEventListener('click', (e)=>{
             myFavs.push(mealId);
 
             localStorage.setItem("myFavs", JSON.stringify(myFavs));
-            // myFavs.push(localStorage.myFavs);
-            
 
             e.target.classList.add('fill');
         }
@@ -255,35 +173,13 @@ container.addEventListener('click', (e)=>{
         e.target.classList.remove('fill')
         let mealId = parseInt(e.target.parentNode.parentNode.id);
             console.log(mealId);
-            // myFavs.splice(mealId);
+  
             myFavs = myFavs.filter(e => e !== mealId)
             console.log(myFavs);
             localStorage.setItem("myFavs", JSON.stringify(myFavs));
 
-            // propertyExists(localStorage, mealId);
-            // parsedJson = JSON.parse(localStorage.myFavs);
-            // if(typeof parsedJson[i] == 'undefined') {
-                // set the property
-                // parsedJson.humidity = 1;
-            //   }
-            // console.log(parsedJson);
-            // myFavs.splice(mealId);
+          
         console.log("removed from fav");
         
     }
 });
-
-// console.log(localStorage.myFavs);
-
-// let loadLocalStorage= ()=>{
-//     localStorage
-//     console.log(localStorage);
-// }
-
-
-
-// var currentlist = localStorage.getItem("contestId");
-// currentlist = currentlist +" "+ id;
-// localStorage.setItem("contestId", currentlist);
-//calling initializelocalStorage when DOM is Loaded
-// document.addEventListener('DOMContentLoaded',loadLocalStorage);

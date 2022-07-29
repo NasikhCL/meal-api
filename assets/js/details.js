@@ -1,3 +1,10 @@
+
+
+let detailsContainer = document.getElementById('details-container');
+
+
+
+// to take onlt the meal id from the url
 let myUrl = window.location.search;
 console.log(myUrl)
 let urlParams = new URLSearchParams(myUrl);
@@ -6,7 +13,7 @@ console.log(mealId);
 
 
 
-
+// api call to fetch the details needed
 const getDetails = async(mealId)=>{
 
 try{
@@ -24,11 +31,7 @@ try{
 }
 
 
-
-
-    let detailsContainer = document.getElementById('details-container');
-
-
+// showing the details of the meal 
 
 const showDetails = (data)=>{
   let mealDetailed = `
@@ -56,12 +59,6 @@ detailsContainer.innerHTML = mealDetailed;
   
 
 }
-
-
-    // let h1 = document.createElement('h1'); 
-    // h1.innerText = 'hello Man';
-    // detailsContainer.appendChild(h1);
-
 
 
 getDetails(mealId);

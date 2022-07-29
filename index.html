@@ -13,6 +13,7 @@
     <title>Meal App</title>
 </head>
 <body>
+  <!-- nav bar -->
     <nav>
       <div id="logo">
           <img src="assets/images/FOOD house crop.png" alt="">
@@ -24,18 +25,21 @@
     </nav>
  
     <main>
+
+      <!-- search box -->
       <div id="search-box">
-        <input type="text" placeholder="Search your Meal..." id="text-box" onKeyUp="fetchFood(value)">
-        <!-- <button id="get-btn"   type="submit">get a food details</button> -->
+        <input type="text" placeholder="Search your Meal..." id="text-box" onKeyUp="fetchFood()">
+        
       </div>
     
       <div id="food-api-conatiner">
         
          
-        
+        <!-- meals will be appended here based on search result and api response -->
 
       </div>
-
+    </main>
+    <!-- javascript link -->
     <script src="assets/js/index.js"></script>
 </body>
 </html>

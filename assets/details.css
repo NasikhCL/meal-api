@@ -1,12 +1,17 @@
+/* details page */ 
+
+
 body{
     margin: 0px;
     background: url('images/pexels-lukas-349610.jpg');
     background-size: cover;
-
     color: #12193e;
   }
+
+  /* nav bar */
+
+  
   nav{
-    /* margin: 5px; */
     height: 70px;
     background-color: blueviolet;
     display: flex;
@@ -47,7 +52,9 @@ body{
     
   }
 
+  /* main content */
   
+
   #details-container{
     margin-top: 10px;
     width: 100%;
@@ -60,7 +67,6 @@ body{
     width: 300px;
     height: 300px;
     padding-bottom: 20px;
-    /* background-color: #12193e; */
     border-radius: 20px 20px 0px 0px;
     padding: 5px 10px;
   }         
@@ -87,21 +93,18 @@ body{
 }
   
 
-  /*scvfdx*/
+
 .meal-details{
   display: flex;
   flex-wrap: wrap;
   text-align: justify;
   justify-content: space-between;
-  
   width: 95%;
-
   background-color: rgb(250, 232, 112);
 }
 .details-food-image{
   margin: auto;
   margin-top: 10px;
-  /* padding-top: 10px; */
   width: 250px;
   height: 250px;
   border-radius: 30px;
