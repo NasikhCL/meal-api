@@ -34,8 +34,11 @@ const getDetails = async(mealId)=>{
     
     
     }
-    if(!myFavs.length){
-        favouriteContainer.innerHTML='<h1>No Favourites To Show :( </h1>'
+    if(myFavs.length == 0){
+        const empty = document.createElement('h1')
+        empty.innerText =  `No Favourites To Show :(`;
+        favouriteContainer.appendChild(empty);
+        // favouriteContainer.innerHTML=`<h1> No Favourites To Show :(</h1>`
 
     }else{
     myFavs.forEach(element => {
