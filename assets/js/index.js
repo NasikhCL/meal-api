@@ -112,7 +112,7 @@ function displayMeals(responseJSON) {
         detailBtn.classList.add('detail-btn');
         detailBtn.innerText = ` View details`;
      
-        areaTag.innerText =mealArea;
+        areaTag.innerText = `(${mealArea})`;
         nameTag.innerText= mealName;
         card.setAttribute('class', 'food-card');
         
