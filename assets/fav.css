@@ -1,5 +1,6 @@
 body{
-    margin: 5px;
+    margin: 0px;
+    background-color: cornsilk;
   }
   nav{
     /* margin: 5px; */
@@ -8,12 +9,12 @@ body{
     display: flex;
     width: 100%;
   }
-  #fav-btn-container{
+  /* #fav-btn-container{
     
     margin-top: 25px;
   
   
-  }
+  } */
   #fav-btn-container a{
    
     text-decoration: none;
@@ -45,7 +46,10 @@ body{
 
   
   #favourite-container{
-    width: 97%;
+   
+    margin-top: 20px;
+    width: 96%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
   }
